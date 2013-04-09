@@ -9,6 +9,7 @@ List crontab content of all user:
 ### DNS
 
 - `dig domain.tld`
+- `dig @ns.server.tld domain.tld`: ask ns.server.tld to know domain.tld dns informations
 - `dig -x XXX.XXX.XXX.XXX`: domain reverse
 
 ### Network
@@ -44,6 +45,7 @@ This command recursively copies /data/files from remote.srv.tld to local server 
 - `iptables -L -n -v`
 
 - `su user_name -c 'command to execute'`: execute a command with `user_name` user
+- ``: open an ssh tunnel
 
 - `find . -name ".svn" -exec rm -rf {} \;`: remove `.svn` directories
 

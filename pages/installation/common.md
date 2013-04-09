@@ -3,9 +3,15 @@ layout: page
 title: Common installation and configuration
 ---
 
-Do this operation with **root** user.
+Do this operation with **root** user. You can also use _sudo_ before all commands.
+
 
 ## Apt-get
+
+```bash
+$ apt-get update
+$ apt-get dist-upgrade
+```
 
 ```bash
 $ apt-get install vim
