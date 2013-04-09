@@ -1,7 +1,5 @@
 ---
-layout: default
+layout: page
 title: Pure-FTPD configuration
 ---
-
-# Pure-FTPD configuration
 

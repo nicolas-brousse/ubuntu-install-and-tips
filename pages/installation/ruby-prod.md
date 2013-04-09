@@ -1,9 +1,7 @@
 ---
-layout: default
+layout: page
 title: Fresh install RUBY/RAILS PROD server
 ---
-
-# {{ page.title }}
 
 __See [common installation]({{ site.baseurl }}/pages/installation/common) and configuration before.__  
 Do this operation with **root** user.
@@ -16,11 +14,14 @@ $ apt-get isntall nginx
 
 ## Backup-manager configurations for PostgreSQL
 
-http://tcweb.org/wiki/Backup-manager_et_debian#Postgresql
+Add this code at the end of `/etc/backup-manager.conf`
+
+See: [Backup manager]({{ site.baseurl }}/pages/configuration/backup-manager)
 
 ## RVM
 
-Create user and group:  
+Create user and group:
+
 ```bash
 $ adduser
   --system \
@@ -32,15 +33,17 @@ $ adduser
   rvm
 ```  
 
-See http://rvm.io. (install into a ruby or rails unix user).  
+See [rvm.io](http://rvm.io). (install into a ruby or rails unix user).  
 Add install the rvm requirments for ubuntu.  
 
-Define a ruby version as default. 
+Define a ruby version as default.
+
 ```bash
 $ rvm use x.x.x --default
 ```
-  
+
 Update rubygems?
+
 ```bash
 $ rvm rubygems current
 ```
@@ -57,10 +60,14 @@ $ rvm rubygems current
 
 ## Other
 
-For a better configuration you can create a user by application:  
+For a better configuration you can create a user by application:
+
 ```bash
 $ adduser app_user
 $ adduser app_user rvm
 ```
 
-Interesting Gist: https://gist.github.com/2499900.
+-------------------------------
+sources:
+
+- [https://gist.github.com/2499900](https://gist.github.com/2499900)

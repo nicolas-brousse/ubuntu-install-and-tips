@@ -1,9 +1,7 @@
 ---
-layout: default
+layout: page
 title: Common installation and configuration
 ---
-
-# {{ page.title }}
 
 Do this operation with **root** user.
 
@@ -37,35 +35,6 @@ No
 +
 ```
 
-
-## Configure Backup manager
-
-To configure backup manager `vi /etc/backup-manager.conf`
-
-```bash
-BM_ARCHIVE_METHOD: add mysql (and svn if you have svn installed)
-```
-```bash
-BM_TARBALL_DIRECTORIES: list of directories to backup (separated by space)
-BM_TARBALL_BLACKLIST: list of ignored directories to backup (separated by space)
-```
-
-### BM_UPLOAD: upload to remote server/ftp
-```bash
-BM_UPLOAD_METHOD = "ftp"
-BM_UPLOAD_FTP_USER = "ftp_user"
-BM_UPLOAD_FTP_PASSWORD = "ftp_password"
-BM_UPLOAD_FTP_HOSTS = "fpt.host.tld"
-BM_UPLOAD_FTP_PURGE = "true"
-BM_UPLOAD_FTP_TTL = "2" (One more is used during the archives trasfert)
-BM_UPLOAD_FTP_DESTINATION = "/" (Do not leave blank)
-````
-
-### Crontab configuration
-```bash
-$ cp /usr/share/backup-manager/backup-manager.cron.tpl /etc/cron.daily/backup-manager
-$ chmod a+x /etc/cron.daily/backup-manager
-```
 
 ## Crontab
 

@@ -1,9 +1,7 @@
 ---
-layout: default
+layout: page
 title: Generic and useful commands
 ---
-
-# Generic and useful commands
 
 List crontab content of all user:  
 `for user in $(cut -f1 -d: /etc/passwd); do crontab -u $user -l; done`

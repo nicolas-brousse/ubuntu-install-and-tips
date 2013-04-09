@@ -1,5 +1,6 @@
 ---
 layout: default
+title: Home
 ---
 
 # Summary
@@ -14,7 +15,8 @@ This a personal reminder but I share it also :)
 
 ## Configuration
 
-- Backup-manager
+- [Backup-manager]({{ site.baseurl }}/pages/configuration/backup-manager)
+- Gitolite
 - [Pure-FTPD]({{ site.baseurl }}/pages/configuration/pure-ftpd)
 
 ## Tips
