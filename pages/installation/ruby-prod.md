@@ -7,6 +7,9 @@ __See [common installation]({{ site.baseurl }}/pages/installation/common) and co
 Do this operation with **root** user.
 
 ## Apt-get
+
+Install **PosgreSQL** and **Nginx**
+
 ```bash
 $ apt-get install postgresql
 $ apt-get isntall nginx

@@ -15,6 +15,7 @@ $ apt-get dist-upgrade
 
 ```bash
 $ apt-get install vim
+$ apt-get install curl
 $ apt-get install wget
 $ apt-get install git
 $ apt-get install backup-manager

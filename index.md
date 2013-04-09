@@ -21,9 +21,13 @@ This a personal reminder but I share it also :)
 
 ## Tips
 
-- [commands]({{ site.baseurl }}/pages/others/commands)
+- [Commands]({{ site.baseurl }}/pages/others/commands)
 
 
 ## Others
 
 - [Clean /boot]({{ site.baseurl }}/pages/others/kernel_cleanup)
+
+## Tools
+
+- [Din'hosting tools](http://outils.dinhosting.fr)
