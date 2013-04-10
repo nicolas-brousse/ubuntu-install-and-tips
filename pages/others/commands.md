@@ -37,6 +37,10 @@ This command recursively copies /data/files from remote.srv.tld to local server 
 
 [Source](http://www.tonido.com/blog/index.php/2009/04/09/network-file-transfer-with-on-the-fly-compression/)
 
+### Regular synchronization
+
+rsync --delete ...
+
 ### Others
 
 - `du -hs /path/to/folder`: Get folder size
