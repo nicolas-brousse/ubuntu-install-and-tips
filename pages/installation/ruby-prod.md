@@ -54,11 +54,26 @@ $ rvm rubygems current
 
 ## Passenger
 
+Switch to `rvm` user
+
+```bash
+$ su - rvm
+```
+
+Create `passenger` repository and `gemset`
+
+```bash
+$ mkdir ~/passenger
+$ rvm --create --ruby-version use ruby-2.0.0@passenger
+```
+
+You can use `ree` instead of `ruby-2.0.0`
+
 
 
 ## Nginx
 
-
+Vhost example.
 
 
 ## Other
