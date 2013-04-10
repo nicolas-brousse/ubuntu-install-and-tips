@@ -6,6 +6,7 @@ title: Convert MySQL database to PostgreSQL
 
 
 OR
+
 ```bash
 # To install mysql2psql (under ubuntu 11.10): No need to get from github, just:
 apt-get install ruby gems libmysqlclient-dev libpq-dev
