@@ -18,6 +18,7 @@ This a personal reminder but I share it also :)
 - [Backup-manager]({{ site.baseurl }}/pages/configuration/backup-manager)
 - Gitolite
 - [Pure-FTPD]({{ site.baseurl }}/pages/configuration/pure-ftpd)
+- [New Relic]({{ site.baseurl }}/pages/configuration/new-relic)
 
 ## Tips
 
