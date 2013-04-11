@@ -128,5 +128,6 @@ $ adduser app_user rvm
 -------------------------------
 sources:
 
+- [http://blog.phusion.nl/2010/09/21/phusion-passenger-running-multiple-ruby-versions/](http://blog.phusion.nl/2010/09/21/phusion-passenger-running-multiple-ruby-versions/)
 - [http://www.modrails.com/documentation/Users%20guide%20Nginx.html#rubygems_generic_install](http://www.modrails.com/documentation/Users%20guide%20Nginx.html#rubygems_generic_install)
 - [https://gist.github.com/2499900](https://gist.github.com/2499900)
