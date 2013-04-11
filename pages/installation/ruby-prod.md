@@ -108,7 +108,7 @@ server {
 }
 ...
 ```
-__Other [example](https://github.com/defunkt/unicorn/blob/master/examples/nginx.conf).__
+_Other [example](https://github.com/defunkt/unicorn/blob/master/examples/nginx.conf)._
 
 ```bash
 $ restart nginx
