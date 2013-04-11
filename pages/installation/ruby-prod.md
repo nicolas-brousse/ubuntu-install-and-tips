@@ -76,16 +76,19 @@ $ gem install passenger
 ```
 
 To find out where the Phusion Passenger gem directory is, run:
+
 ```bash
 $ passenger-config --root
 ```
 
 Install Passenger Nginx module:
+
 ```bash
 $ passenger-install-nginx-module
 ```
 
 Restart web server and verifying that Phusion Passenger is running
+
 ```bash
 $ passenger-memory-stats
 ```
@@ -95,7 +98,7 @@ $ passenger-memory-stats
 
 Edit Nginx config `/opt/nginx/conf/nginx.conf`. (Create symlink into `/etc`?)
 
-```ini
+```nginx
 ...
 server {
     listen 80;
