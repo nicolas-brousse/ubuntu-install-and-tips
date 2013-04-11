@@ -12,7 +12,6 @@ Install **PosgreSQL** and **Nginx**
 
 ```bash
 $ apt-get install postgresql
-$ apt-get isntall nginx
 ```
 
 ## Backup-manager configurations for PostgreSQL
@@ -52,7 +51,7 @@ $ rvm rubygems current
 ```
 
 
-## Passenger
+## Installation of Passenger + Nginx
 
 Switch to `rvm` user
 
@@ -69,11 +68,49 @@ $ rvm --create --ruby-version use ruby-2.0.0@passenger
 
 You can use `ree` instead of `ruby-2.0.0`
 
+Now install passenger.
+
+```bash
+$ cd ~/passenger
+$ gem install passenger
+```
+
+To find out where the Phusion Passenger gem directory is, run:
+```bash
+$ passenger-config --root
+```
+
+Install Passenger Nginx module:
+```bash
+$ passenger-install-nginx-module
+```
+
+Restart web server and verifying that Phusion Passenger is running
+```bash
+$ passenger-memory-stats
+```
 
 
-## Nginx
+## Nginx configuration
 
-Vhost example.
+Edit Nginx config `/opt/nginx/conf/nginx.conf`. (Create symlink into `/etc`?)
+
+```ini
+...
+server {
+    listen 80;
+    server_name my_app.tld www.my_app.tld;
+    root /home/my_app/public;
+    passenger_enabled on;
+}
+...
+```
+
+```bash
+$ restart nginx
+
+$ curl localhost
+```
 
 
 ## Other
@@ -88,4 +125,5 @@ $ adduser app_user rvm
 -------------------------------
 sources:
 
+- [http://www.modrails.com/documentation/Users%20guide%20Nginx.html#rubygems_generic_install](http://www.modrails.com/documentation/Users%20guide%20Nginx.html#rubygems_generic_install)
 - [https://gist.github.com/2499900](https://gist.github.com/2499900)
