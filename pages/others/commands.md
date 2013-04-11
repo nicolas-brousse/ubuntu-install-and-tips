@@ -44,7 +44,18 @@ This command recursively copies /data/files from remote.srv.tld to local server 
 
 ### Regular synchronization
 
-rsync --delete ...
+```
+# --delete: remove files they are in remote but not in source
+
+# r: recursive
+# a: archive
+# z: compression
+# e: protocol `ssh`
+
+# source destination
+
+rsync --delete -raze "ssh" remote.server.tld:/path/to/rsync/ /path/to/rsync/
+```
 
 ### Others
 
@@ -54,11 +65,12 @@ rsync --delete ...
 - `iptables -L -n -v`
 
 - `su user_name -c 'command to execute'`: execute a command with `user_name` user
-- ``: open an ssh tunnel
+- `ssh -f remote.server.tld -L local_port:localhost:remote_port -N`: open an ssh tunnel
 
 - `find . -name ".svn" -exec rm -rf {} \;`: remove `.svn` directories
 
 - `tar cfz archive.tar.gz target_dir_or_file`: archive and compress file or directory into tar.gz
+- `tar xfz archive.tar.gz /path/to/unarchive`: unarchive a tar.gz file
 
 
 ## Tools
