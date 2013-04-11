@@ -44,7 +44,7 @@ This command recursively copies /data/files from remote.srv.tld to local server 
 
 ### Regular synchronization
 
-```
+```bash
 # --delete: remove files they are in remote but not in source
 
 # r: recursive
