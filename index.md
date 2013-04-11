@@ -33,3 +33,7 @@ This a personal reminder but I share it also :)
 ## Tools
 
 - [Din'hosting tools](http://outils.dinhosting.fr)
+
+
+------------------------------------------------------------
+Thanks to [@kevynlebouille](http://twitter.com/kevynlebouille) for some helps and tips.
