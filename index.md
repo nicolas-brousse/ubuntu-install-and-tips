@@ -23,6 +23,8 @@ This a personal reminder but I share it also :)
 ## Tips
 
 - [Commands]({{ site.baseurl }}/pages/others/commands)
+- [Users & groups]({{ site.baseurl }}/pages/others/users-groups)
+- [Default editor]({{ site.baseurl }}/pages/others/default-editor)
 
 
 ## Others

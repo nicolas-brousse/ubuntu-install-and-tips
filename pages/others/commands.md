@@ -34,6 +34,9 @@ List crontab content of all user:
 - `adduser --system --no-create-home [--disabled-password] [--disabled-login] [--shell /bin/bash] --home-dir / --groups group_name user_name`: Create system user
 - `adduser group_name user_name`: Add a user into a group
 
+- `deluser user_name`: Remove a user
+- `deluser group_name user_name`: Remove a user from a group
+
 ### Get data from an other server
 
 Run this command from on new server.  

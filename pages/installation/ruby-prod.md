@@ -35,25 +35,25 @@ $ adduser \
   rvm
 ```
 
-Add `rvm` user into `admin` group to a full sudo access:
+Add sudo access to `rvm` user with `visudo` command:
 
 ```bash
-$ adduser rvm admin
-$ adduser rvm sudo
+# $ visudo
+....
+rvm     ALL=(ALL) NOPASSWD:ALL
+...
+```
+
+Switch to `rvm` user
+
+```bash
+$ su - rvm
 ```
 
 See [rvm.io](http://rvm.io). (install into a ruby or rails unix user).  
 
 ```bash
 $ \curl -#L https://get.rvm.io | bash -s stable --autolibs=3 --ruby
-```
-
-Add install the rvm requirments for ubuntu.  
-
-Define a ruby version as default.
-
-```bash
-$ rvm use x.x.x --default
 ```
 
 Update rubygems?
@@ -65,16 +65,11 @@ $ rvm rubygems current
 
 ## Installation of Passenger + Nginx
 
-Switch to `rvm` user
-
-```bash
-$ su - rvm
-```
-
 Create `passenger` repository and `gemset`
 
 ```bash
 $ mkdir ~/passenger
+$ cd ~/passenger
 $ rvm --create --ruby-version use ruby-2.0.0@passenger
 ```
 
@@ -83,7 +78,6 @@ You can use `ree` instead of `ruby-2.0.0`
 Now install passenger.
 
 ```bash
-$ cd ~/passenger
 $ gem install passenger
 ```
 
