@@ -25,7 +25,7 @@ See: [Backup manager]({{ site.baseurl }}/pages/configuration/backup-manager)
 Create user and group:
 
 ```bash
-$ adduser
+$ adduser \
   --system \
   --disabled-password \
   --group \
@@ -33,9 +33,21 @@ $ adduser
   --gecos 'RVM' \
   --home /home/rvm \
   rvm
-```  
+```
+
+Add `rvm` user into `admin` group to a full sudo access:
+
+```bash
+$ adduser rvm admin
+$ adduser rvm sudo
+```
 
 See [rvm.io](http://rvm.io). (install into a ruby or rails unix user).  
+
+```bash
+$ \curl -#L https://get.rvm.io | bash -s stable --autolibs=3 --ruby
+```
+
 Add install the rvm requirments for ubuntu.  
 
 Define a ruby version as default.
