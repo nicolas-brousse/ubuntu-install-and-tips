@@ -27,19 +27,13 @@ $ apt-get install fail2ban
 If you have application that want to send mail follow this else go next.  
 
 ```bash
-$ sudo dpkg-reconfigure postfix
+$ apt-get install postfix
 ```
 And enter this informations step by step:
 
 ```bash
 Internet Site
-NONE
 server1.exemple.com
-server1.exemple.com, localhost.exemple.com, localhost
-No
-127.0.0.0/8
-0
-+
 ```
 
 
