@@ -12,6 +12,7 @@ Install **PosgreSQL** and **Nginx**
 
 ```bash
 $ apt-get install postgresql
+$ apt-get install nginx
 ```
 
 ## Backup-manager configurations for PostgreSQL
@@ -29,7 +30,7 @@ $ adduser \
   --system \
   --disabled-password \
   --group \
-  --shell /bin/sh \
+  --shell /bin/bash \
   --gecos 'RVM' \
   --home /home/rvm \
   rvm
@@ -40,7 +41,7 @@ Add sudo access to `rvm` user with `visudo` command:
 ```bash
 # $ visudo
 ....
-rvm     ALL=(ALL) NOPASSWD:ALL
+rvm     ALL=(ALL:ALL) NOPASSWD:ALL
 ...
 ```
 
@@ -63,46 +64,52 @@ $ rvm rubygems current
 ```
 
 
-## Installation of Passenger + Nginx
 
-Create `passenger` repository and `gemset`
+## New application
+
+For a better configuration you can create a user by application:
+
+Create user and group:
 
 ```bash
-$ mkdir ~/passenger
-$ cd ~/passenger
-$ rvm --create --ruby-version use ruby-2.0.0@passenger
+$ adduser \
+  --system \
+  --disabled-password \
+  --ingroup rvm \
+  --shell /bin/sh \
+  --gecos 'Application' \
+  --home /home/app_user \
+  app_user
 ```
 
-You can use `ree` instead of `ruby-2.0.0`
+```bash
+$ adduser app_user
+$ adduser app_user rvm
+```
 
-Now install passenger.
+
+
+### Configuration of Passenger + Nginx
+
+To start switch to your user app
+
+```bash
+$ su - app_user
+```
+
+Install `gem passenger`
 
 ```bash
 $ gem install passenger
 ```
 
-To find out where the Phusion Passenger gem directory is, run:
+Launch passenger
 
 ```bash
-$ passenger-config --root
+$ passenger start --socket /tmp/passenger.app_name.socket -d [--nginx-version x.x.x]
 ```
 
-Install Passenger Nginx module:
-
-```bash
-$ passenger-install-nginx-module
-```
-
-Restart web server and verifying that Phusion Passenger is running
-
-```bash
-$ passenger-memory-stats
-```
-
-
-## Nginx configuration
-
-Edit Nginx config `/opt/nginx/conf/nginx.conf`. (Create symlink into `/etc`?)
+Create config file `/etc/nginx/sites-available/app_name`.
 
 ```nginx
 ...
@@ -110,7 +117,31 @@ server {
     listen 80;
     server_name my_app.tld www.my_app.tld;
     root /home/my_app/public;
-    passenger_enabled on;
+}
+
+upstream app_name {
+  server unix:/tmp/passenger.app_name.socket fail_timeout=0;
+}
+
+server {
+  listen 80 default deferred;
+  server_name my_app.tld www.my_app.tld;
+  root /home/app_user/public;
+
+  try_files $uri/index.html $uri @app_name;
+
+  location @app_name {
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_redirect off;
+
+    proxy_pass http://app_name
+  }
+
+  error_page 500 502 503 504 /500.html;
+
+  client_max_body_size 4G;
+  keepalive_timeout 10;
 }
 ...
 ```
@@ -120,16 +151,6 @@ _Other [example](https://github.com/defunkt/unicorn/blob/master/examples/nginx.c
 $ restart nginx
 
 $ curl localhost
-```
-
-
-## Other
-
-For a better configuration you can create a user by application:
-
-```bash
-$ adduser app_user
-$ adduser app_user rvm
 ```
 
 -------------------------------

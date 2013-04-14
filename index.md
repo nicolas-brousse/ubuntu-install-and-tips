@@ -20,11 +20,13 @@ This a personal reminder but I share it also :)
 - [Pure-FTPD]({{ site.baseurl }}/pages/configuration/pure-ftpd)
 - [New Relic]({{ site.baseurl }}/pages/configuration/new-relic)
 
+
 ## Tips
 
 - [Commands]({{ site.baseurl }}/pages/others/commands)
 - [Users & groups]({{ site.baseurl }}/pages/others/users-groups)
 - [Default editor]({{ site.baseurl }}/pages/others/default-editor)
+- [Update Motd]({{ site.baseurl }}/pages/others/motd)
 
 
 ## Others
