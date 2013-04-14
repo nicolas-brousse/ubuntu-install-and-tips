@@ -4,10 +4,10 @@ title: Fresh install RUBY/RAILS PROD server
 ---
 
 __See [common installation]({{ site.baseurl }}/pages/installation/common) and configuration before.__  
-Do this operation with **root** user.
 
 ## Apt-get
 
+Do this operation with **root** user.  
 Install **PosgreSQL** and **Nginx**
 
 ```bash
@@ -73,10 +73,9 @@ Create user and group:
 
 ```bash
 $ adduser \
-  --system \
   --disabled-password \
   --ingroup rvm \
-  --shell /bin/sh \
+  --shell /bin/bash \
   --gecos 'Application' \
   --home /home/app_user \
   app_user

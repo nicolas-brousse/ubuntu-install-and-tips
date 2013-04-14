@@ -51,12 +51,12 @@ BM_PIPE_FILETYPE[0] = "tar"
 BM_PIPE_COMPRESS[0] = "gzip"
 ```
 
-Create `/usr/local/share/backups/bk_pgsql` file:
+Create `/usr/local/share/backups/bk_pgsql` file (it's possible that `/usr/local/share/backups` dir doesn't exist):
 
 ```bash
 #!/bin/bash
-WORK_DIR = $(mktemp -d)
-LST_BASES = $(su postgres -c "psql -l --no-align" | sed -e '1d' -e '2d' -e '$d' | cut -d '|' -f 1)
+WORK_DIR=$(mktemp -d)
+LST_BASES=$(su postgres -c "psql -l --no-align" | sed -e '1d' -e '2d' -e '$d' | cut -d '|' -f 1)
 for base in $LST_BASES
 do
     /usr/bin/pg_dump -Fc -b $base > $WORK_DIR/$base.dump
@@ -66,6 +66,12 @@ cd $WORK_DIR
 tar -c *
 cd /tmp/
 rm -rf $WORK_DIR
+```
+
+Do this file executable:
+
+```bash
+$ chmod a+x /usr/local/share/backups/bk_pgsql
 ```
 
 
