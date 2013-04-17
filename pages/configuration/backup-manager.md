@@ -58,11 +58,11 @@ Create `/usr/local/share/backups/bk_pgsql` file (it's possible that `/usr/local/
 
 ```bash
 #!/bin/bash
-WORK_DIR = $(mktemp -d)
-LST_BASES = $(su postgres -c "psql -l --no-align" | sed -e '1d' -e '2d' -e '$d' | cut -d '|' -f 1)
+WORK_DIR=$(mktemp -d)
+LST_BASES=$(su postgres -c "psql -l --no-align" | sed -e '1d' -e '2d' -e '$d' | cut -d '|' -f 1)
 for base in $LST_BASES
 do
-    su postgres -c "/usr/bin/pg_dump -Fp -D $base" > $WORK_DIR/$base.sql
+    su postgres -c "/usr/bin/pg_dump $base" > $WORK_DIR/$base.sql
 done
 cd $WORK_DIR
 tar -c *
