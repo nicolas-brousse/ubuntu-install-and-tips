@@ -23,41 +23,14 @@ See: [Backup manager]({{ site.baseurl }}/pages/configuration/backup-manager)
 
 ## RVM
 
-Create user and group:
-
-```bash
-$ adduser \
-  --system \
-  --disabled-password \
-  --group \
-  --shell /bin/bash \
-  --gecos 'RVM' \
-  --home /home/rvm \
-  rvm
-```
-
-Add sudo access to `rvm` user with `visudo` command:
-
-```bash
-# $ visudo
-....
-rvm     ALL=(ALL:ALL) NOPASSWD:ALL
-...
-```
-
-Switch to `rvm` user
-
-```bash
-$ su - rvm
-```
-
 See [rvm.io](http://rvm.io). (install into a ruby or rails unix user).  
+For production install for all user use `sudo`  
 
 ```bash
-$ \curl -#L https://get.rvm.io | bash -s stable --autolibs=3 --ruby
+$ \curl -#L https://get.rvm.io | sudo bash -s stable --autolibs=3 --ruby
 ```
 
-Update rubygems?
+Update rubygems if you want
 
 ```bash
 $ rvm rubygems current
@@ -86,6 +59,20 @@ $ adduser app_user
 $ adduser app_user rvm
 ```
 
+Log with `app_user` user and execute this command:
+
+```bash
+$ ln -s /home/rvm/.rvm .rvm
+```
+
+Edit or create `/etc/gemrc` file:
+
+```bash
+install: --no-rdoc --no-ri
+update: --no-rdoc --no-ri
+gem: --no-rdoc --no-ri
+```
+
 
 
 ### Configuration of Passenger + Nginx
@@ -112,12 +99,6 @@ Create config file `/etc/nginx/sites-available/app_name`.
 
 ```nginx
 ...
-server {
-    listen 80;
-    server_name my_app.tld www.my_app.tld;
-    root /home/my_app/public;
-}
-
 upstream app_name {
   server unix:/tmp/passenger.app_name.socket fail_timeout=0;
 }
@@ -134,7 +115,7 @@ server {
     proxy_set_header Host $http_host;
     proxy_redirect off;
 
-    proxy_pass http://app_name
+    proxy_pass http://app_name;
   }
 
   error_page 500 502 503 504 /500.html;
