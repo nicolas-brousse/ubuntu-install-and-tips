@@ -38,7 +38,7 @@ $ chmod a+x /etc/cron.daily/backup-manager
 ```
 
 
-## Backup-manager configurations for PostgreSQL
+## <a id="pgsql"></a>Backup-manager configurations for PostgreSQL
 
 Add this code at the end of `/etc/backup-manager.conf`
 

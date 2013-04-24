@@ -19,7 +19,7 @@ $ apt-get install nginx
 
 Add this code at the end of `/etc/backup-manager.conf`
 
-See: [Backup manager]({{ site.baseurl }}/pages/configuration/backup-manager)
+See: [Backup manager]({{ site.baseurl }}/pages/configuration/backup-manager/#pgsql)
 
 ## RVM
 
