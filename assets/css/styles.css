@@ -192,6 +192,7 @@ pre code {
   color: inherit;
   background-color: transparent;
   border: 0;
+  overflow-y: scroll;
 }
 
 
