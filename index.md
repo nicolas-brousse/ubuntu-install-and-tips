@@ -9,9 +9,14 @@ This a personal reminder but I share it also :)
 
 ## Installation
 
+### Server
 - [Common]({{ site.baseurl }}/pages/installation/common)
   - PHP server [Prod]({{ site.baseurl }}/pages/installation/php-prod) - Dev
   - Ruby server [Prod]({{ site.baseurl }}/pages/installation/ruby-prod) - Dev
+
+### Applications
+- [Redmine]({{ site.baseurl }}/pages/installation/redmine)
+
 
 ## Configuration
 
@@ -19,6 +24,7 @@ This a personal reminder but I share it also :)
 - Gitolite
 - [Pure-FTPD]({{ site.baseurl }}/pages/configuration/pure-ftpd)
 - [New Relic]({{ site.baseurl }}/pages/configuration/new-relic)
+- [Fail2ban]({{ site.baseurl }}/pages/configuration/fail2ban)
 
 
 ## Tips

@@ -3,15 +3,15 @@ layout: page
 title: Fresh install RUBY/RAILS PROD server
 ---
 
-__See [common installation]({{ site.baseurl }}/pages/installation/common) and configuration before.__  
+__See [common installation]({{ site.baseurl }}/pages/installation/common) and configuration before.__
 
 ## Apt-get
 
-Do this operation with **root** user.  
+Do this operation with **root** user.
 Install **PosgreSQL** and **Nginx**
 
 ```bash
-$ apt-get install postgresql
+$ apt-get install postgresql libpq-dev
 $ apt-get install nginx
 ```
 
@@ -23,8 +23,8 @@ See: [Backup manager]({{ site.baseurl }}/pages/configuration/backup-manager/#pgs
 
 ## RVM
 
-See [rvm.io](http://rvm.io). (install into a ruby or rails unix user).  
-For production install for all user use `sudo`  
+See [rvm.io](http://rvm.io). (install into a ruby or rails unix user).
+For production install for all user use `sudo`
 
 ```bash
 $ \curl -#L https://get.rvm.io | sudo bash -s stable --autolibs=3 --ruby
@@ -75,7 +75,7 @@ gem: --no-rdoc --no-ri
 
 
 
-### Configuration of Passenger + Nginx
+### Configuration of Puma + Nginx
 
 To start switch to your user app
 
@@ -83,28 +83,27 @@ To start switch to your user app
 $ su - app_user
 ```
 
-Install `gem passenger`
+Install `gem puma`
 
 ```bash
-$ gem install passenger
+$ gem install puma
 ```
 
-Launch passenger
+Launch puma
 
 ```bash
-$ passenger start --socket /tmp/passenger.app_name.socket -d [--nginx-version x.x.x]
+$ bundle exec puma -b unix://tmp/sockets/puma.app_name.sock -d
 ```
 
 Create config file `/etc/nginx/sites-available/app_name`.
 
 ```nginx
-...
 upstream app_name {
-  server unix:/tmp/passenger.app_name.socket fail_timeout=0;
+  server unix:///home/app_user/tmp/sockets/puma.app_name.sock fail_timeout=0;
 }
 
 server {
-  listen 80 default deferred;
+  # listen 80 default deferred;
   server_name my_app.tld www.my_app.tld;
   root /home/app_user/public;
 
@@ -123,7 +122,6 @@ server {
   client_max_body_size 4G;
   keepalive_timeout 10;
 }
-...
 ```
 _Other [example](https://github.com/defunkt/unicorn/blob/master/examples/nginx.conf)._
 

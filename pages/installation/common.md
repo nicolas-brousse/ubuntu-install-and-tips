@@ -14,6 +14,7 @@ $ apt-get dist-upgrade
 ```
 
 ```bash
+$ apt-get install update-notifier-common
 $ apt-get install vim
 $ apt-get install curl
 $ apt-get install wget
@@ -24,7 +25,7 @@ $ apt-get install fail2ban
 
 ## SMTP server
 
-If you have application that want to send mail follow this else go next.  
+If you have application that want to send mail follow this else go next.
 
 ```bash
 $ apt-get install postfix
