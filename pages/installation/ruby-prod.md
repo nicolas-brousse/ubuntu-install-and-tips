@@ -37,6 +37,14 @@ $ rvm rubygems current
 ```
 
 
+Edit or create `/etc/gemrc` file:
+
+```bash
+install: --no-rdoc --no-ri
+update: --no-rdoc --no-ri
+gem: --no-rdoc --no-ri
+```
+
 
 ## New application
 
@@ -54,82 +62,28 @@ $ adduser \
   app_user
 ```
 
+Add the user to the `rvm` group
+
 ```bash
-$ adduser app_user
 $ adduser app_user rvm
 ```
 
-Log with `app_user` user and execute this command:
-
-```bash
-$ ln -s /home/rvm/.rvm .rvm
-```
-
-Edit or create `/etc/gemrc` file:
-
-```bash
-install: --no-rdoc --no-ri
-update: --no-rdoc --no-ri
-gem: --no-rdoc --no-ri
-```
-
-
-
-### Configuration of Puma + Nginx
-
-To start switch to your user app
+Now switch to the application user
 
 ```bash
 $ su - app_user
 ```
 
-Install `gem puma`
+Create a gemset if the application doesn't contain
 
 ```bash
-$ gem install puma
+$ rvm use 2.0.0@rails_app --ruby-version --create
 ```
 
-Launch puma
+Deploy the app and chose the web server you want
 
-```bash
-$ bundle exec puma -b unix://tmp/sockets/puma.app_name.sock -d
-```
-
-Create config file `/etc/nginx/sites-available/app_name`.
-
-```nginx
-upstream app_name {
-  server unix:///home/app_user/tmp/sockets/puma.app_name.sock fail_timeout=0;
-}
-
-server {
-  # listen 80 default deferred;
-  server_name my_app.tld www.my_app.tld;
-  root /home/app_user/public;
-
-  try_files $uri/index.html $uri @app_name;
-
-  location @app_name {
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_set_header Host $http_host;
-    proxy_redirect off;
-
-    proxy_pass http://app_name;
-  }
-
-  error_page 500 502 503 504 /500.html;
-
-  client_max_body_size 4G;
-  keepalive_timeout 10;
-}
-```
-_Other [example](https://github.com/defunkt/unicorn/blob/master/examples/nginx.conf)._
-
-```bash
-$ restart nginx
-
-$ curl localhost
-```
+- [Rails app with Puma]({{ site.baseurl }}/pages/installation/rails-puma)
+- [Rails app with Unicorn]({{ site.baseurl }}/pages/installation/rails-unicorn)
 
 -------------------------------
 sources:

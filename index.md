@@ -9,12 +9,14 @@ This a personal reminder but I share it also :)
 
 ## Installation
 
-### Server
+### Server environment
 - [Common]({{ site.baseurl }}/pages/installation/common)
   - PHP server [Prod]({{ site.baseurl }}/pages/installation/php-prod) - Dev
   - Ruby server [Prod]({{ site.baseurl }}/pages/installation/ruby-prod) - Dev
 
 ### Applications
+- [Rails app with Puma]({{ site.baseurl }}/pages/installation/rails-puma)
+- [Rails app with Unicorn]({{ site.baseurl }}/pages/installation/rails-unicorn)
 - [Redmine]({{ site.baseurl }}/pages/installation/redmine)
 
 
