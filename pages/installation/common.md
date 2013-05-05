@@ -13,8 +13,14 @@ $ apt-get update
 $ apt-get dist-upgrade
 ```
 
+Packages for motd (optionals):
+
 ```bash
 $ apt-get install update-notifier-common
+$ apt-get install landscape-common
+```
+
+```bash
 $ apt-get install vim
 $ apt-get install curl
 $ apt-get install wget
