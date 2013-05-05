@@ -70,7 +70,8 @@ rsync --delete -raze "ssh" remote.server.tld:/path/to/rsync/ /path/to/rsync/
 - `su user_name -c 'command to execute'`: execute a command with `user_name` user
 - `ssh -f remote.server.tld -L local_port:localhost:remote_port -N`: open an ssh tunnel
 
-- `find . -name ".svn" -exec rm -rf {} \;`: remove `.svn` directories
+- `find /folder -name ".svn" -exec rm -rf {} \;`: remove `.svn` directories into `/folder`
+- `find /folder -type l -exec ls -lad {} \;`: find symlinks into `/folder`
 
 - `tar cfz archive.tar.gz target_dir_or_file`: archive and compress file or directory into tar.gz
 - `tar xfz archive.tar.gz /path/to/unarchive`: unarchive a tar.gz file
