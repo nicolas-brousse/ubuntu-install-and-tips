@@ -118,7 +118,7 @@ server {
 
 ## Custom error pages
 
-Create `public/502.html` with [this page]({{ site.baseurl }}/resources/errors/puma/502.html).
+Create `public/502.html` with [this page]({{ site.baseurl }}/resources/errors/puma/502.html).  
 Create `public/503.html` with [this page]({{ site.baseurl }}/resources/errors/puma/503.html).
 
 
