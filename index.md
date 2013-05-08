@@ -5,7 +5,7 @@ title: Home
 
 # Summary
 
-This a personal reminder but I share it also :)
+This is a personal reminder but I share it also :)
 
 ## Installation
 
