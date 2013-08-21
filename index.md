@@ -23,7 +23,7 @@ This is a personal reminder but I share it also :)
 ## Configuration
 
 - [Backup-manager]({{ site.baseurl }}/pages/configuration/backup-manager)
-- Gitolite
+- [Gitolite]({{ site.baseurl }}/pages/configuration/gitolite)
 - [Pure-FTPD]({{ site.baseurl }}/pages/configuration/pure-ftpd)
 - [New Relic]({{ site.baseurl }}/pages/configuration/new-relic)
 - [Fail2ban]({{ site.baseurl }}/pages/configuration/fail2ban)
