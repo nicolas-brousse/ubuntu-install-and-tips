@@ -7,7 +7,7 @@ title: Gitolite configuration
 $ apt-get install git-core
 ```
 
-With *root* user:
+With **root** user:
 
 ```bash
 $ adduser \
@@ -20,7 +20,7 @@ $ adduser \
     git
 ```
 
-Switch to *git* user:
+Switch to **git** user:
 
 ```bash
 $ su - git
