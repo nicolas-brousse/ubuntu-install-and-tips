@@ -19,6 +19,9 @@ This is a personal reminder but I share it also :)
 - [Rails app with Unicorn]({{ site.baseurl }}/pages/installation/rails-unicorn)
 - [Redmine]({{ site.baseurl }}/pages/installation/redmine)
 
+### Services
+- [Gitolite]({{ site.baseurl }}/pages/installation/gitolite)
+
 
 ## Configuration
 
