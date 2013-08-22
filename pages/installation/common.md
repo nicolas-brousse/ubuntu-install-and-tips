@@ -29,6 +29,8 @@ $ apt-get install backup-manager
 $ apt-get install fail2ban
 ```
 
+After this installation you can configure [*backup-manager*]({{ site.baseurl }}/pages/configuration/backup-manager) and [*fail2ban*]({{ site.baseurl }}/pages/configuration/fail2ban).
+
 ## SMTP server
 
 If you have application that want to send mail follow this else go next.
@@ -52,7 +54,39 @@ Use file `/etc/crontab` or add file into `/etc/cron.d/`.
 ## SSH
 
 Disable ssh connection for `root` user and enable just for precise users or group.
+For this open `/etc/ssh/sshd_config` file and change this option:
 
+```bash
+PermitRootLogin no
+```
+
+You can also add an other parameter to precise a groups they are authorized to loggin with ssh:
+
+```bash
+AllowGroups ssh-login
+```
+
+Save and close `/etc/ssh/sshd_config` and *don't reboot ssh server now!*
+
+Now you must create this group:
+
+```bash
+$ addgroup ssh-login --system
+```
+
+Add user you want authorized into *ssh-login* group (do this command for each user):
+
+```bash
+$ adduser username ssh-login
+```
+
+You can now restart ssh:
+
+```bash
+$ service ssh restart
+```
+
+*Before close your current ssh term open an another an try to log to your server to be sure that works.*
 
 ## To continue
 
