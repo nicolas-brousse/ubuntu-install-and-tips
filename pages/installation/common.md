@@ -29,7 +29,7 @@ $ apt-get install backup-manager
 $ apt-get install fail2ban
 ```
 
-After this installation you can configure [*backup-manager*]({{ site.baseurl }}/pages/configuration/backup-manager) and [*fail2ban*]({{ site.baseurl }}/pages/configuration/fail2ban).
+After this installation you can configure [**backup-manager**]({{ site.baseurl }}/pages/configuration/backup-manager) and [**fail2ban**]({{ site.baseurl }}/pages/configuration/fail2ban).
 
 ## SMTP server
 
@@ -66,7 +66,7 @@ You can also add an other parameter to precise a groups they are authorized to l
 AllowGroups ssh-login
 ```
 
-Save and close `/etc/ssh/sshd_config` and *don't reboot ssh server now!*
+Save and close `/etc/ssh/sshd_config` and **don't reboot ssh server now!**
 
 Now you must create this group:
 
@@ -74,7 +74,7 @@ Now you must create this group:
 $ addgroup ssh-login --system
 ```
 
-Add user you want authorized into *ssh-login* group (do this command for each user):
+Add user you want authorized into **ssh-login** group (do this command for each user):
 
 ```bash
 $ adduser username ssh-login
@@ -86,11 +86,11 @@ You can now restart ssh:
 $ service ssh restart
 ```
 
-*Before close your current ssh term open an another an try to log to your server to be sure that works.*
+**Before close your current ssh term open an another an try to log to your server to be sure that works.**
 
 ## .profile
 
-To enable color for a user, just add this line into the user *.profile* file and add this line:
+To enable color for a user, just add this line into the user **.profile** file and add this line:
 
 ```bash
 TERM="xterm-color"
