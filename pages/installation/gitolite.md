@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Gitolite configuration
+title: Gitolite installation
 ---
 
 ```bash
