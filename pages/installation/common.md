@@ -88,6 +88,14 @@ $ service ssh restart
 
 *Before close your current ssh term open an another an try to log to your server to be sure that works.*
 
+## .profile
+
+To enable color for a user, just add this line into the user *.profile* file and add this line:
+
+```bash
+TERM="xterm-color"
+```
+
 ## To continue
 
 You can now install a [PHP server]({{ site.baseurl }}/pages/installation/php-prod) or a [Ruby server]({{ site.baseurl }}/pages/installation/ruby-prod) (or both).
