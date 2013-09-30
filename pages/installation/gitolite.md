@@ -26,6 +26,12 @@ Switch to **git** user:
 $ su - git
 ```
 
+Get gitolite from **github**:
+
+```bash
+$ git clone git://github.com/sitaramc/gitolite
+```
+
 ```bash
 $ cd /var/git
 $ mkdir bin
