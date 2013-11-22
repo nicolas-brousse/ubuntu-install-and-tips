@@ -65,7 +65,7 @@ rsync --delete -raze "ssh" remote.server.tld:/path/to/rsync/ /path/to/rsync/
 - `du -hs /path/to/folder`: Get folder size
 - `df -h`: Get disks size
 
-- `find /folder -type f -size +1048576 --exec`: Search files size greater than 1G
+- `find /folder -type f -size +1048576 -exec ls -lh {} \;`: Search files size greater than 1G
 
 ### Others
 
