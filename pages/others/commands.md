@@ -60,10 +60,14 @@ This command recursively copies /data/files from remote.srv.tld to local server 
 rsync --delete -raze "ssh" remote.server.tld:/path/to/rsync/ /path/to/rsync/
 ```
 
-### Others
+### Disk and sizes
 
 - `du -hs /path/to/folder`: Get folder size
 - `df -h`: Get disks size
+
+- `find /folder -type f -size +1048576 --exec`: Search files size greater than 1G
+
+### Others
 
 - `iptables -L -n -v`
 
