@@ -25,7 +25,7 @@ List crontab content of all user:
 
 ### PostgreSQL
 
-
+- `pg_dump -U <username> -Fc --file=database.dump <database>`
 
 
 ### Users/groups
