@@ -1,0 +1,10 @@
+update backup-manager.md:
+    - update pipe pqsql
+    - add pipe mail ?
+
+Create MOTD section
+  - Get the same of my first Dedibox
+
+POSTGRES configuration
+
+fail2ban ?

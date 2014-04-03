@@ -7,4 +7,7 @@ config pgsql
 
 Create user admin with superadmin role
 
-ALTER USER "admin" SUPERUSER;
+su - postgres
+psql
+CREATE USER "admin";
+ALTER USER "admin" WITH SUPERUSER;
