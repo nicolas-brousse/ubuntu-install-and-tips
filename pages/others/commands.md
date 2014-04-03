@@ -3,7 +3,8 @@ layout: page
 title: Generic and useful commands
 ---
 
-List crontab content of all user:  
+List crontab content of all user:
+
 `for user in $(cut -f1 -d: /etc/passwd); do crontab -u $user -l; done`
 
 ### DNS
@@ -35,7 +36,7 @@ List crontab content of all user:
 - `adduser user_name group_name`: Add a user into a group
 
 - `deluser user_name`: Remove a user
-- `deluser group_name user_name`: Remove a user from a group
+- `deluser user_name group_name`: Remove a user from a group
 
 ### Get data from an other server
 
