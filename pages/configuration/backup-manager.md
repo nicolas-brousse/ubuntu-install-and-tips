@@ -30,6 +30,12 @@ BM_UPLOAD_FTP_TTL="2" (One more is used during the archives trasfert)
 BM_UPLOAD_FTP_DESTINATION="/" (Do not leave blank)
 ````
 
+## BM_BURNING
+
+```ini
+BM_BURNING_METHOD="none"
+```
+
 ## Crontab configuration
 
 ```bash
