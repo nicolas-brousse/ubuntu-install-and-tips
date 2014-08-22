@@ -19,6 +19,8 @@ List crontab content of all user:
 
 ### Mysql
 
+- `echo "CREATE DATABASE databasename" | mysql -u username -p`: Create new database
+
 - `mysqldump -u root --password="password" --all-databases | gzip> all_databases_dump.sql.gz`: Dump all Mysql databases
 - `mysql < dump.sql`: Resore databases from a sql file
 - `mysql database_name < dump.sql`: Resore a database from a sql file
