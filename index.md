@@ -54,6 +54,7 @@ This is a personal reminder but I share it also :)
 ## Tools
 
 - [Din'hosting tools](http://outils.dinhosting.fr)
+- [Random key generator](http://randomkeygen.com/)
 - [OSX install and tips](http://nicolas-brousse.github.io/osx-install-and-tips/)
 
 
